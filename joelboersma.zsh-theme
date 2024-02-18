@@ -33,4 +33,4 @@ else
   lambda_end="%{${(%):-"%{$reset_color%}"}%}"
 fi
 
-PROMPT="${lambda_orange}λ${lambda_end} %{$fg[cyan]%}%~%  %(?.%{$fg[green]%}.%{$fg[red]%})%B>>%b "
+PROMPT="${lambda_orange}λ${lambda_end} %{$fg[cyan]%}%1/%  %(?.%{$fg[green]%}.%{$fg[red]%})%B>>%b "
