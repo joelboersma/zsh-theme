@@ -25,7 +25,7 @@ ZSH_THEME_RUBY_PROMPT_SUFFIX=")%{$reset_color%}"
 RPS1="\$(git_custom_status)\$(ruby_prompt_info)${RPS1:+ $RPS1}"
 
 # Use extended color palette for lambda if available
-if [[ $TERM = (*256color|*rxvt*) ]]; then
+if [[ $TERM = (*256color|*rxvt*|*ghostty*) ]]; then
   lambda_orange="%{${(%):-"%F{166}"}%}"
   lambda_end="%{${(%):-"%f"}%}"
 else
