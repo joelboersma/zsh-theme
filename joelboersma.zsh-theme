@@ -8,11 +8,15 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-# Customized git status, oh-my-zsh currently does not allow render dirty status before branch
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="%{$fg[yellow]%}+%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="%{$fg[yellow]%}-%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg[yellow]%}+-%{$reset_color%}"
+
+Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 git_custom_status() {
   local branch=$(git_current_branch)
   [[ -n "$branch" ]] || return 0
-  echo "$(parse_git_dirty)\
+  echo "$(git_remote_status)$(parse_git_dirty)\
 %{${fg_bold[yellow]}%}$(work_in_progress)%{$reset_color%}\
 ${ZSH_THEME_GIT_PROMPT_PREFIX}${branch}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
 }
