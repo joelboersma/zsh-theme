@@ -1,4 +1,4 @@
-# Based on built-in oh-my-zsh themes gallois, half-life, and arrow
+# Based on built-in oh-my-zsh themes gallois, half-life, intheloop, and arrow
 
 # Depends on the git plugin for work_in_progress()
 (( $+functions[work_in_progress] )) || work_in_progress() {}
@@ -8,9 +8,9 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="%{$fg[yellow]%}+%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="%{$fg[yellow]%}-%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg[yellow]%}+-%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="%{$fg_bold[yellow]%}↓%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="%{$fg_bold[yellow]%}↑%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg_bold[yellow]%}↕%{$reset_color%}"
 
 # Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 git_custom_status() {
