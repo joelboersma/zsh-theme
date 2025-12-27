@@ -12,7 +12,7 @@ ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="%{$fg[yellow]%}+%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="%{$fg[yellow]%}-%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg[yellow]%}+-%{$reset_color%}"
 
-Customized git status, oh-my-zsh currently does not allow render dirty status before branch
+# Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 git_custom_status() {
   local branch=$(git_current_branch)
   [[ -n "$branch" ]] || return 0
