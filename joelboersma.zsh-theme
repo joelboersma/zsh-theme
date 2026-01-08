@@ -16,7 +16,14 @@ ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg_bold[yellow]%}↕%{$reset_color%}"
 git_custom_status() {
   local branch=$(git_current_branch)
   [[ -n "$branch" ]] || return 0
-  echo "$(git_remote_status)$(parse_git_dirty)\
+
+  # Only parse the remote status if the current local branch has a remote counterpart
+  local remote_status=""
+  if git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
+    remote_status="$(git_remote_status)"
+  fi
+
+  echo "${remote_status}$(parse_git_dirty)\
 %{${fg_bold[yellow]}%}$(work_in_progress)%{$reset_color%}\
 ${ZSH_THEME_GIT_PROMPT_PREFIX}${branch}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
 }
